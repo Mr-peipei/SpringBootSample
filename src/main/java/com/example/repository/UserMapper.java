@@ -2,6 +2,7 @@ package com.example.repository;
 
 import com.example.domain.user.model.MUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,5 +13,16 @@ public interface UserMapper {
     public int insertOne(MUser user);
 
     /*ユーザー取得*/
-    public List<MUser> findMany();
+    public List<MUser> findMany(MUser user);
+
+    /*ユーザー取得*/
+    public MUser findOne(String userId);
+
+    /*ユーザー更新*/
+    public void updateOne(@Param("userId") String userId,
+                          @Param("password") String password,
+                          @Param("userName") String userName);
+
+    /*ユーザー削除*/
+    public int deleteOne(@Param("userId") String userId);
 }
