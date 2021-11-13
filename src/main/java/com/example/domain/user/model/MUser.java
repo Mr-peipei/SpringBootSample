@@ -5,8 +5,13 @@ import java.util.List;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 @Data
+@Entity
+@Table(name = "m_user")
 public class MUser{
+    @Id
     private String userId;
     private String password;
     private String userName;
@@ -15,6 +20,12 @@ public class MUser{
     private Integer gender;
     private Integer departmentId;
     private String role;
+
+    @ManyToOne(optional = true)
+    @JoinColumn(insertable = false, updatable = false, name = "departmentId")
     private Department department;
+
+    @OneToMany
+    @JoinColumn(insertable = false, updatable = false, name = "userId")
     private List<Salary> salaryList;
 }

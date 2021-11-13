@@ -39,7 +39,7 @@ public class UserRestController {
     @GetMapping("/get/list")
     public List<MUser> getUserList(UserListForm form){
 
-        //formをMUsreクラスに変換
+        //formをMUserクラスに変換
         MUser user = modelMapper.map(form, MUser.class);
 
         //ユーザー一覧取得
