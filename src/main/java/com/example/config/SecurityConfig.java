@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/webjars/**")
             .antMatchers("/css/**")
             .antMatchers("/js/**")
+            .antMatchers("/images/**")
             .antMatchers("/h2-console/**");
     }
     /** セキュリティの各種設定 */
@@ -43,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //ログイン不要ページの設定
         http
             .authorizeRequests()
+                .antMatchers("/").permitAll() //直リンクOK
             .antMatchers("/login").permitAll() //直リンクOK
             .antMatchers("/user/signup").permitAll() //直リンクOK
             .antMatchers("/user/signup/rest").permitAll() //直リンクOK

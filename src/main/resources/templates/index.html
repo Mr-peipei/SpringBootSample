@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <mata name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no"></mata>
+    <meta charset="UTF-8">
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/index/index.css}">
+    <!-- JS読み込み -->
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+    <title>「ここからが生きる喜びの始まり」</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7">
+            <img class="img-fluid home-image" th:src="@{/images/indeximage.jpg}" alt="">
+        </div>
+        <div class="col-md-4 d-flex align-items-center">
+            <div class="flex-column">
+                <div class="p-2 mb-5">
+                    <img th:src="@{/images/homeicon.png}" alt="" class="home-icon">
+                </div>
+                <div class="p-2 mt-4">
+                    <h1 class="h1-hello">自分の人生を見つけてみよう</h1>
+                </div>
+                <div class="p-2 h3-hello">
+                    <h3>巨大ネットワークの世界へようこそ</h3>
+                </div>
+                <div class="p-2">
+                    <a th:href="@{/user/signup}" class="">
+                        <input type="button" class="btn btn-primary" value="新規登録はこちらから" />
+                    </a>
+                </div>
+                <div class="p-2">
+                    <p class="p-hello">サインアップすると、Cookieの使用含む利用規約とプライバリーポリシーに同意したことになります。</p>
+                </div>
+                <div class="p-2">
+                    <p>アカウントをお持ちの場合は<a th:href="@{/login/login}">ログイン</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center flex-wrap p-3">
+        <a href="" class="footer-a">利用規約</a>
+        <a href="" class="footer-a">このサイトについて</a>
+        <a href="" class="footer-a">プライバシーポリシー</a>
+    </footer>
+</div>
+</body>
+</html>

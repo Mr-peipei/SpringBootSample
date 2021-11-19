@@ -1,0 +1,32 @@
+
+.container-fluid{
+}
+.org-height{
+
+}
+.home-image{
+    width: 100%;
+}
+.home-icon{
+    height: 50px;
+}
+.h1-hello{
+    line-height: 64px;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.h3-hello{
+    font-weight: 700;
+}
+.p-hello{
+    font-size: 13px;
+    color: grey;
+}
+.footer-a{
+    color: grey;
+    padding-right: 16px;
+}
+.footer-customize{
+    justify-content: center;
+}
