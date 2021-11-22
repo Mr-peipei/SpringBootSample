@@ -4,6 +4,8 @@ import com.example.domain.user.model.MUser;
 import com.example.domain.user.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +33,14 @@ public class UserListController {
         MUser user = modelMapper.map(form, MUser.class);
         //ユーザー一覧を取得
         List<MUser> userList = userService.getUsers(user);
+        //ログインユーザーを取得
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userId = auth.getName();
+
 
         //Modelに登録
         model.addAttribute("userList", userList);
+        model.addAttribute("userId", userId);
 
         //ユーザー一覧画面を表示
         return "user/list";

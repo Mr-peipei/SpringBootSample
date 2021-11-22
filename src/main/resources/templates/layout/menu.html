@@ -14,6 +14,9 @@
         <li role="presentation" sec:authorize="hasRole('ADMIN')">
             <a th:href="@{'/admin'}" class="nav-link">アドミン専用</a>
         </li>
+        <li role="presentation" >
+            <a th:href="@{${userId}}" class="nav-link">プロフィール</a>
+        </li>
     </ul>
 </div>
 </body>
