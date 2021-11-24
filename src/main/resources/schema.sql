@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS m_user (
  ,age INT
  ,gender INT
  ,department_id INT
+ ,introduction VARCHAR(100)
+ ,follows INT
+ ,follower INT
  ,role VARCHAR(50)
 );
 
@@ -28,4 +31,12 @@ CREATE TABLE IF NOT EXISTS t_salary (
  ,year_month VARCHAR(50)
  ,salary INT
  , PRIMARY KEY(user_id, year_month)
-)
+);
+
+--ツイートテーブル
+CREATE TABLE IF NOT EXISTS a_tweet (
+    user_id VARCHAR(50)
+    ,tweet_Date DATE
+    ,tweet VARCHAR(200)
+    , PRIMARY KEY(user_id, tweet_Date)
+);

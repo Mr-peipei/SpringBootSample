@@ -14,8 +14,12 @@
         <result column="gender" property="gender" />
         <result column="department_id" property="departmentId" />
         <result column="role" property="role" />
+        <result column="introduction" property="introduction" />
+        <result column="follows" property="follows" />
+        <result column="follower" property="follower" />
         <association property="department" resultMap="department" />
         <collection property="salaryList" resultMap="salary" columnPrefix="salary_" />
+        <collection property="tweetList" resultMap="tweet" columnPrefix="tweet" />
     </resultMap>
 
     <!-- マッピング定義(部署) -->
@@ -31,6 +35,13 @@
         <result column="salary" property="salary" />
     </resultMap>
 
+    <!-- マッピング定義(ツイート) -->
+    <resultMap id="tweet" type="com.example.domain.user.model.Tweet">
+        <id column="user_id" property="userId" />
+        <id column="tweet_Date" property="tweetDate" />
+        <result column="tweet" property="tweet" />
+    </resultMap>
+
     <!-- ログインユーザーを検索 -->
     <insert id="insertOne">
         insert into m_user(
@@ -42,6 +53,9 @@
         ,gender
         ,department_id
         ,role
+        ,introduction
+        ,follows
+        ,follower
         )
         values (
         #{userId}
@@ -52,6 +66,9 @@
         ,#{gender}
         ,#{departmentId}
         ,#{role}
+        ,#{introduction}
+        ,#{follows}
+        ,#{follower}
         )
     </insert>
 
@@ -80,17 +97,25 @@
             ,m_user.birthday
             ,m_user.age
             ,m_user.gender
+            ,m_user.introduction
+            ,m_user.follows
+            ,m_user.follower
             ,m_department.department_id
             ,m_department.department_name
             ,t_salary.user_id as salary_user_id
             ,t_salary.year_month as salary_year_month
             ,t_salary.salary as salary_salary
+            ,a_tweet.user_id as tweet_user_id
+            ,a_tweet.tweetDate
+            ,a_tweet.tweet
         from
             m_user
             left join m_department
                 on m_user.department_id=m_department.department_id
             left join t_salary
                 on m_user.user_id = t_salary.user_id
+            left join a_tweet
+                on m_user.user_id = a_tweet.user_id
         where
             m_user.user_id = #{userId}
     </select>
@@ -123,4 +148,27 @@
         where
             user_id=#{userId}
     </select>
+
+    <!-- ログインユーザーのツイート情報取得 -->
+    <select id="findLoginUserTweet" resultType="MUser">
+        select
+            m_user.user_id
+             ,m_user.password
+             ,m_user.user_name
+             ,m_user.birthday
+             ,m_user.age
+             ,m_user.gender
+             ,m_user.introduction
+             ,m_user.follows
+             ,m_user.follower
+             ,a_tweet.user_id as tweet_user_id
+             ,a_tweet.tweet_Date
+             ,a_tweet.tweet
+        from
+           m_user
+               left join a_tweet
+                         on m_user.user_id = a_tweet.user_id
+        where
+            m_user.user_id = #{userId}
+</select>
 </mapper>

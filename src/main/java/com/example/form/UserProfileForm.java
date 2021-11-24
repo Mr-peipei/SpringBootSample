@@ -2,13 +2,14 @@ package com.example.form;
 
 import com.example.domain.user.model.Department;
 import com.example.domain.user.model.Salary;
+import com.example.domain.user.model.Tweet;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
-public class UserDetailForm {
+public class UserProfileForm {
     private String userId;
     private String password;
     private String userName;
@@ -19,5 +20,5 @@ public class UserDetailForm {
     private Integer follows;
     private Integer follower;
     private Department department;
-    private List<Salary> salaryList;
+    private List<Tweet> tweetList;
 }

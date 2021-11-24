@@ -14,6 +14,12 @@ public interface UserRepository extends JpaRepository<MUser, String> {
     + " where user.userId = :userId")
     public MUser findLoginUser(@Param("userId") String userId);
 
+    /** ログインツイートユーザー検索 */
+    @Query("select user"
+            + " from MUser user"
+            + " where user.userId = :userId")
+    public MUser findLoginUserTweet(@Param("userId") String userId);
+
     /** ユーザー更新 */
     @Modifying
     @Query("update MUser"

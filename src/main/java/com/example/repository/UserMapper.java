@@ -28,4 +28,7 @@ public interface UserMapper {
 
     /*ログインユーザー取得*/
     public MUser findLoginUser(String userId);
+
+    /*ログインユーザーツイート取得 */
+    public MUser findLoginUserTweet(String userId);
 }

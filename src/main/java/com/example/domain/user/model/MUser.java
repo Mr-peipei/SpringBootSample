@@ -20,6 +20,9 @@ public class MUser{
     private Integer gender;
     private Integer departmentId;
     private String role;
+    private String introduction;
+    private Integer follows;
+    private Integer follower;
 
     @ManyToOne(optional = true)
     @JoinColumn(insertable = false, updatable = false, name = "departmentId")
@@ -28,4 +31,8 @@ public class MUser{
     @OneToMany
     @JoinColumn(insertable = false, updatable = false, name = "userId")
     private List<Salary> salaryList;
+
+    @OneToMany
+    @JoinColumn(insertable = false, updatable = false, name= "userId")
+    private List<Tweet> tweetList;
 }

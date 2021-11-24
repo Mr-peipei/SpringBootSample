@@ -67,4 +67,9 @@ public class UserServiceImpl implements UserService {
     public MUser getLoginUser(String userId){
         return mapper.findLoginUser(userId);
     }
+
+    @Override
+    public MUser getLoginUserTweet(String userId){
+        return mapper.findLoginUserTweet(userId);
+    }
 }

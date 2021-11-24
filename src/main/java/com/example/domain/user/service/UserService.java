@@ -25,4 +25,7 @@ public interface UserService {
 
     /*ログインユーザー情報取得 */
     public MUser getLoginUser(String userId);
+
+    /*ログインユーザーツイート情報取得 */
+    public MUser getLoginUserTweet(String userId);
 }

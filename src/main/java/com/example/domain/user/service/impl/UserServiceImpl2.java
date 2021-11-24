@@ -94,4 +94,7 @@ public class UserServiceImpl2 implements UserService {
     public MUser getLoginUser(String userId){
         return repository.findLoginUser(userId);
     }
+
+    @Override
+    public MUser getLoginUserTweet(String userId){ return repository.findLoginUserTweet(userId); }
 }
