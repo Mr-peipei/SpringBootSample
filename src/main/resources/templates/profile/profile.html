@@ -14,7 +14,7 @@
 <body>
 <div layout:fragment="content">
     <div class="header border-bottom">
-        <h1 class="h2">プロフィール</h1>
+        <h1 class="h2">マイプロフィール</h1>
     </div>
     <form th:action="@{/user/detail}" method="post" id="user-detail-form" class="form-signup" th:object="${userProfileForm}">
         <img th:src="@{/images/defaultIcon.jpg}" alt="" class="rounded-circle profile-icon p-3">
@@ -44,6 +44,8 @@
                                     <div class="pl-2 bd-highlight">
                                         <p class="" th:text="${#dates.format(item.tweetKey.tweetDate, 'yyyy/MM/dd')}" />
                                     </div>
+
+
                                 </div>
                                 <p class="card-text" th:text="${item.tweet}"></p>
                             </div>

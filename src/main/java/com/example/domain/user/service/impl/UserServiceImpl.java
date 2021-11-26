@@ -1,6 +1,8 @@
 package com.example.domain.user.service.impl;
 
 import com.example.domain.user.model.MUser;
+import com.example.domain.user.model.Tweet;
+import com.example.domain.user.model.TweetKey;
 import com.example.domain.user.service.UserService;
 import com.example.repository.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -72,4 +75,17 @@ public class UserServiceImpl implements UserService {
     public MUser getLoginUserTweet(String userId){
         return mapper.findLoginUserTweet(userId);
     }
+
+    /**ツイートする */
+    @Override
+    public void tweeting(Tweet tweetone){
+        TweetKey tweetKey = new TweetKey();
+        Date date = new Date();
+        tweetKey.setTweetDate(date);
+        tweetKey.setUserId(tweetone.getTweetKey().getUserId());
+        tweetone.setTweetKey(tweetKey);
+
+        mapper.insertTweet(tweetone);
+    }
+
 }

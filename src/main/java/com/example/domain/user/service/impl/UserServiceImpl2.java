@@ -1,6 +1,7 @@
 package com.example.domain.user.service.impl;
 
 import com.example.domain.user.model.MUser;
+import com.example.domain.user.model.Tweet;
 import com.example.domain.user.service.UserService;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,4 +98,9 @@ public class UserServiceImpl2 implements UserService {
 
     @Override
     public MUser getLoginUserTweet(String userId){ return repository.findLoginUserTweet(userId); }
+
+    @Override
+    public void tweeting(Tweet tweetone){
+
+    };
 }

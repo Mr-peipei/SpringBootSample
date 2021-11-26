@@ -1,6 +1,7 @@
 package com.example.domain.user.service;
 
 import com.example.domain.user.model.MUser;
+import com.example.domain.user.model.Tweet;
 
 import java.util.List;
 
@@ -28,4 +29,7 @@ public interface UserService {
 
     /*ログインユーザーツイート情報取得 */
     public MUser getLoginUserTweet(String userId);
+
+    /*ツイートする */
+    public void tweeting(Tweet tweetone);
 }

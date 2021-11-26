@@ -42,7 +42,7 @@
         <result column="tweet" property="tweet" />
     </resultMap>
 
-    <!-- ログインユーザーを検索 -->
+    <!-- ユーザー登録 -->
     <insert id="insertOne">
         insert into m_user(
         user_id
@@ -162,7 +162,7 @@
              ,m_user.follows
              ,m_user.follower
              ,a_tweet.user_id as tweet_user_id
-             ,a_tweet.tweet_Date
+             ,a_tweet.tweet_Date as tweetDate
              ,a_tweet.tweet
         from
            m_user
@@ -170,5 +170,24 @@
                          on m_user.user_id = a_tweet.user_id
         where
             m_user.user_id = #{userId}
-</select>
+        order by
+            a_tweet.tweet_Date
+        desc;
+    </select>
+
+    <!-- ツイート追加 -->
+    <insert id="insertTweet">
+        insert into a_tweet(
+           user_id
+           ,tweet_Date
+           ,tweet
+        )
+        values (
+           #{userId}
+           ,#{tweetDate}
+           ,#{tweet}
+        )
+    </insert>
+
+
 </mapper>

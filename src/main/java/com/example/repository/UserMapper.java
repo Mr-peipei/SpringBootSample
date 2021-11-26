@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.domain.user.model.MUser;
+import com.example.domain.user.model.Tweet;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -31,4 +32,6 @@ public interface UserMapper {
 
     /*ログインユーザーツイート取得 */
     public MUser findLoginUserTweet(String userId);
+
+    public int insertTweet(Tweet tweet);
 }
