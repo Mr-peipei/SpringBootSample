@@ -30,6 +30,4 @@ public interface UserService {
     /*ログインユーザーツイート情報取得 */
     public MUser getLoginUserTweet(String userId);
 
-    /*ツイートする */
-    public void tweeting(Tweet tweetone);
 }

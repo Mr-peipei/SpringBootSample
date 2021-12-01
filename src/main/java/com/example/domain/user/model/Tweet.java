@@ -12,8 +12,13 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "a_tweet")
-public class Tweet {
+public class Tweet implements Comparable<Tweet>{
     @EmbeddedId
     private TweetKey tweetKey;
     private String tweet;
+
+    @Override
+    public int compareTo(Tweet tweet){
+        return tweet.tweetKey.getTweetDate().compareTo(tweetKey.getTweetDate());
+    }
 }

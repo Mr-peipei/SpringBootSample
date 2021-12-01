@@ -4,6 +4,7 @@ import com.example.domain.user.model.MUser;
 import com.example.domain.user.model.Tweet;
 import com.example.domain.user.service.UserService;
 import com.example.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.dao.DataAccessException;
@@ -99,8 +100,4 @@ public class UserServiceImpl2 implements UserService {
     @Override
     public MUser getLoginUserTweet(String userId){ return repository.findLoginUserTweet(userId); }
 
-    @Override
-    public void tweeting(Tweet tweetone){
-
-    };
 }

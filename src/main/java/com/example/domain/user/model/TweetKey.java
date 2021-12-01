@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Embeddable
 @Data
-public class TweetKey implements Serializable {
+public class TweetKey implements Serializable{
     private String userId;
     private Date tweetDate;
 }

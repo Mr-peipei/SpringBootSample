@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS t_salary (
 --ツイートテーブル
 CREATE TABLE IF NOT EXISTS a_tweet (
     user_id VARCHAR(50)
-    ,tweet_Date DATE
+    ,tweet_Date TIMESTAMP
     ,tweet VARCHAR(200)
     , PRIMARY KEY(user_id, tweet_Date)
 );

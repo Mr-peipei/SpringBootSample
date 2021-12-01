@@ -175,19 +175,5 @@
         desc;
     </select>
 
-    <!-- ツイート追加 -->
-    <insert id="insertTweet">
-        insert into a_tweet(
-           user_id
-           ,tweet_Date
-           ,tweet
-        )
-        values (
-           #{userId}
-           ,#{tweetDate}
-           ,#{tweet}
-        )
-    </insert>
-
 
 </mapper>
