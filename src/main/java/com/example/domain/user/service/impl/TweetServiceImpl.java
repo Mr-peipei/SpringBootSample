@@ -16,4 +16,9 @@ public class TweetServiceImpl implements TweetService {
     public void tweeting(Tweet tweetone){
         repository.save(tweetone);
     };
+
+    @Override
+    public void deleteTweetOne(String tweetId){
+        repository.deleteById(tweetId);
+    };
 }

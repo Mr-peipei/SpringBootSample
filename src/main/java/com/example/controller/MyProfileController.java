@@ -96,4 +96,6 @@ public class MyProfileController {
 
         return "redirect:user/list";
     }
+
+
 }
