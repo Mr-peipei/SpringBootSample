@@ -13,6 +13,8 @@ import com.example.form.UserProfileForm;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -71,17 +73,24 @@ public class MyProfileController {
         //formをTweetクラスに変換
         Tweet tweetone = modelMapper.map(form, Tweet.class);
         TweetKey tweetKey = new TweetKey();
+
+        //ログインユーザーを取得
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String userId = auth.getName();
+
+        //ツイート日を取得
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        tweetKey.setUserId("system@co.jp");
-        log.info(df.format(date));
+
+        //ユーザーとツイート日を設定する
+        tweetKey.setUserId(userId);
         tweetKey.setTweetDate(date);
 
         //ツイートキーを登録
         tweetone.setTweetKey(tweetKey);
-        //ツイート分をtweetoneにセット
+        //ツイートをtweetoneにセット
         tweetone.setTweet(tweetStr);
-        log.info(tweetone.toString());
+
         //ツイート
         tweetService.tweeting(tweetone);
 
