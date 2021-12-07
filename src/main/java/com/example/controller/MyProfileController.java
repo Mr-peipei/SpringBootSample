@@ -41,18 +41,16 @@ public class MyProfileController {
     private ModelMapper modelMapper;
 
     @GetMapping("user/{userId:.*}")
-    public String getUser(UserProfileForm form, Model model,
+    public String getUser(UserProfileForm form, TweetForm tweetForm, Model model,
                           @PathVariable("userId") String userId){
 
         //ログインユーザー取得
         MUser user = userService.getLoginUserTweet(userId);
         user.setPassword(null);
-
         form = modelMapper.map(user, UserProfileForm.class);
 
         //ツイート順に並び替え
         Collections.sort(user.getTweetList());
-
         form.setTweetList(user.getTweetList());
 
         //Modelに登録
@@ -95,6 +93,17 @@ public class MyProfileController {
         tweetService.tweeting(tweetone);
 
         return "redirect:user/list";
+    }
+
+    /**ツイート削除処理 */
+    @PostMapping(value = "tweet/delete", name = "deleteTweet")
+    public String deleteTweet(TweetForm form, Model model){
+
+        //ツイート削除
+        tweetService.deleteTweetOne(form.getTweetKey());
+//
+        log.info(form.getTweetKey().toString());
+        return "redirect:/user/list";
     }
 
 

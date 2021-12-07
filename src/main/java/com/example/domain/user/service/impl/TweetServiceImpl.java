@@ -1,6 +1,7 @@
 package com.example.domain.user.service.impl;
 
 import com.example.domain.user.model.Tweet;
+import com.example.domain.user.model.TweetKey;
 import com.example.domain.user.service.TweetService;
 import com.example.repository.TweetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class TweetServiceImpl implements TweetService {
     };
 
     @Override
-    public void deleteTweetOne(String tweetId){
-        repository.deleteById(tweetId);
+    public void deleteTweetOne(TweetKey tweetKey){
+        repository.deleteByTweetKey(tweetKey);
     };
+
 }
