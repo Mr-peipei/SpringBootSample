@@ -40,10 +40,8 @@
             <thead class="thread-light">
             <tr>
                 <th class="width">ユーザーID</th>
-                <th class="width">ユーザー名</th>
-                <th class="width">誕生日</th>
-                <th class="width">年齢</th>
-                <th class="width">性別</th>
+                <th class="width">ツイート日</th>
+                <th class="width">ツイート</th>
                 <th></th>
             </tr>
             </thead>
@@ -53,7 +51,7 @@
                 <td th:text="${item.tweetKey.tweetDate}"></td>
                 <td th:text="${item.tweet}"></td>
                 <td>
-                    <a th:href="@{'/tweet/detail/' + ${item.tweetKey.userId}}" class="btn btn-primary">
+                    <a th:href="@{'/tweet/detail/' + ${item.tweetKey.tweetDate}}" class="btn btn-primary">
                         詳細
                     </a>
                 </td>
