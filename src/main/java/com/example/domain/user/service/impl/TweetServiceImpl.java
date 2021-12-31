@@ -23,4 +23,8 @@ public class TweetServiceImpl implements TweetService {
         repository.deleteByTweetKey(tweetKey);
     };
 
+    @Override
+    public Tweet findTweetOne(String tweetId){
+        return repository.findTweetByTweetId(tweetId);
+    }
 }

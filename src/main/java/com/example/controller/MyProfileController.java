@@ -8,9 +8,8 @@ import com.example.domain.user.service.TweetService;
 import com.example.domain.user.service.UserService;
 import com.example.form.GroupOrder;
 import com.example.form.TweetForm;
-import com.example.form.UserDetailForm;
 import com.example.form.UserProfileForm;
-import lombok.extern.slf4j.Slf4j;
+import groovy.util.logging.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -20,12 +19,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.Locale;
+import java.util.UUID;
 
 @Slf4j
 @Controller
@@ -66,7 +63,6 @@ public class MyProfileController {
     public String postTweet(@RequestParam("tweet") String tweetStr,
                @ModelAttribute @Validated({GroupOrder.class}) TweetForm form){
 
-        log.info("tweeting"+tweetStr);
 
         //formをTweetクラスに変換
         Tweet tweetone = modelMapper.map(form, Tweet.class);
@@ -83,7 +79,7 @@ public class MyProfileController {
         //ユーザーとツイート日を設定する
         tweetKey.setUserId(userId);
         tweetKey.setTweetDate(date);
-
+        tweetone.setTweetId(UUID.randomUUID().toString());
         //ツイートキーを登録
         tweetone.setTweetKey(tweetKey);
         //ツイートをtweetoneにセット
@@ -92,7 +88,7 @@ public class MyProfileController {
         //ツイート
         tweetService.tweeting(tweetone);
 
-        return "redirect:user/list";
+        return "redirect:home/";
     }
 
     /**ツイート削除処理 */
@@ -101,10 +97,7 @@ public class MyProfileController {
 
         //ツイート削除
         tweetService.deleteTweetOne(form.getTweetKey());
-//
-        log.info(form.getTweetKey().toString());
+
         return "redirect:/user/list";
     }
-
-
 }

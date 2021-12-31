@@ -15,13 +15,15 @@
             <a th:href="@{'/admin'}" class="nav-link">アドミン専用</a>
         </li>
         <li role="presentation" >
-            <a th:href="@{${userId}}" class="nav-link">プロフィール</a>
+            <a th:href="@{'/user/'+${userId}}" class="nav-link">プロフィール</a>
+        </li>
+        <li role="presentation" >
+            <a th:href="@{'/home'}" class="nav-link">ホーム</a>
         </li>
         <form id="tweet-form" th:action="@{/tweet}" method="post" >
             <textarea name="tweet" class="form-control mb-2" type="text" rows="2" ></textarea>
             <p><input class="btn btn-primary" type="submit" value="ツイートする" /></p>
         </form>
-
     </ul>
 </div>
 </body>
