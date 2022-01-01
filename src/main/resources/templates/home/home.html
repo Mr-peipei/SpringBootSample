@@ -47,7 +47,9 @@
             </thead>
             <tbody>
             <tr th:each="item: ${tweetList}">
-                <td th:text="${item.tweetKey.userId}"></td>
+                <td>
+                    <a th:href="@{'/user/'+ ${item.tweetKey.userId}}" th:text="${item.tweetKey.userId}"></a>
+                </td>
                 <td th:text="${item.tweetKey.tweetDate}"></td>
                 <td th:text="${item.tweet}"></td>
                 <td>
