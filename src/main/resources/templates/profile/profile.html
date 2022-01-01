@@ -21,12 +21,18 @@
     </div>
     <form th:action="@{/user/detail}" method="post" id="user-detail-form" class="form-signup" th:object="${userProfileForm}">
         <img th:src="@{/images/defaultIcon.jpg}" alt="" class="rounded-circle profile-icon p-3">
-        <h4 th:text="*{userName}" class="font-weight-bold"></h4>
+        <div class="d-flex justify-content-between w-25">
+            <h4 th:text="*{userName}" class="font-weight-bold"></h4>
+            <div th:if="${authId != userProfileForm.getUserId()}">
+                <button class="btn btn-primary">
+                    フォロー
+                </button>
+            </div>
+        </div>
         <h6 class="ml-2" th:text="*{userId}"></h6>
         <h6 class="p-2" th:text="*{introduction}"></h6>
         <h6 class="p-2" th:text="'フォロー中：'+*{follows}+'  フォロワー：'+*{follower}"></h6>
         <input type="hidden" th:field="*{userId}">
-
         <!--ツイート情報 -->
         <th:block th:if="*{tweetList != null and tweetList.size() > 0}">
             <th:block th:each="item: *{tweetList}">
