@@ -41,10 +41,14 @@ public class MyProfileController {
     public String getUser(UserProfileForm form, TweetForm tweetForm, Model model,
                           @PathVariable("userId") String userId){
 
-        //ログインユーザー取得
+        //表示ユーザー取得
         MUser user = userService.getLoginUserTweet(userId);
         user.setPassword(null);
         form = modelMapper.map(user, UserProfileForm.class);
+
+        //ログインユーザー取得
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String authId = auth.getName();
 
         //ツイート順に並び替え
         Collections.sort(user.getTweetList());
@@ -52,6 +56,7 @@ public class MyProfileController {
 
         //Modelに登録
         model.addAttribute("userProfileForm", form);
+        model.addAttribute("authId", authId);
 
         //プロフィール画面の表示
         return "profile/profile";
