@@ -53,7 +53,7 @@
                 <td th:text="${item.tweetKey.tweetDate}"></td>
                 <td th:text="${item.tweet}"></td>
                 <td>
-                    <a th:href="@{'/tweet/detail/' + ${item.tweetKey.tweetDate}}" class="btn btn-primary">
+                    <a th:href="@{'/user/' + ${item.tweetKey.userId} +'/'+ ${item.tweetId}}" class="btn btn-primary">
                         詳細
                     </a>
                 </td>
