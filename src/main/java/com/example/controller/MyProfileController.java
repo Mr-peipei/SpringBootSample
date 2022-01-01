@@ -90,14 +90,4 @@ public class MyProfileController {
 
         return "redirect:home/";
     }
-
-    /**ツイート削除処理 */
-    @PostMapping(value = "tweet/delete", name = "deleteTweet")
-    public String deleteTweet(TweetForm form, Model model){
-
-        //ツイート削除
-        tweetService.deleteTweetOne(form.getTweetKey());
-
-        return "redirect:/user/list";
-    }
 }

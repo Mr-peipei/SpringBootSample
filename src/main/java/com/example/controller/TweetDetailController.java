@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TweetDetailController {
@@ -34,5 +35,15 @@ public class TweetDetailController {
         model.addAttribute("tweetDetail", form);
 
         return "tweetDetail/tweetDetail";
+    }
+
+    /**ツイート削除処理 */
+    @PostMapping(value = "/user/tweet", name = "deleteTweet")
+    public String deleteTweet(TweetForm form, Model model){
+
+        //ツイート削除
+        tweetService.deleteTweetOne(form.getTweetId());
+
+        return "redirect:/home/";
     }
 }

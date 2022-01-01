@@ -19,8 +19,8 @@ public class TweetServiceImpl implements TweetService {
     };
 
     @Override
-    public void deleteTweetOne(TweetKey tweetKey){
-        repository.deleteByTweetKey(tweetKey);
+    public void deleteTweetOne(String tweetId){
+        repository.deleteByTweetId(tweetId);
     };
 
     @Override

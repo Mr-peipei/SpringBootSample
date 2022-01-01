@@ -9,7 +9,7 @@ public interface TweetService {
     public void tweeting(Tweet tweetone);
 
     /*ツイートを削除(1件) */
-    public void deleteTweetOne(TweetKey tweetKey);
+    public void deleteTweetOne(String tweetId);
 
     public Tweet findTweetOne(String tweetId);
 }

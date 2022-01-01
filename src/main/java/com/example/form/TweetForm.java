@@ -7,4 +7,5 @@ import lombok.Data;
 public class TweetForm {
     private TweetKey tweetKey;
     private String tweet;
+    private String tweetId;
 }
