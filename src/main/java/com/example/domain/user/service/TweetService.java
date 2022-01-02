@@ -1,7 +1,7 @@
 package com.example.domain.user.service;
 
+import com.example.domain.user.model.Follow;
 import com.example.domain.user.model.Tweet;
-import com.example.domain.user.model.TweetKey;
 
 
 public interface TweetService {

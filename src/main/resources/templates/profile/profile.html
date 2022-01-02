@@ -31,7 +31,16 @@
         </div>
         <h6 class="ml-2" th:text="*{userId}"></h6>
         <h6 class="p-2" th:text="*{introduction}"></h6>
-        <h6 class="p-2" th:text="'フォロー中：'+*{follows}+'  フォロワー：'+*{follower}"></h6>
+        <div class="d-flex justify-content-start">
+            <h6 class="p-2">フォロー中</h6>
+            <a th:href="@{'/user/'+*{userId}+'/following'}">
+                <h6 class="p-2" th:text="*{follows}"></h6>
+            </a>
+            <h6 class="p-2">フォロワー</h6>
+            <a th:href="@{'/user/'+*{userId}+'/follower'}">
+                <h6 class="p-2" th:text="*{follower}"></h6>
+            </a>
+        </div>
         <input type="hidden" th:field="*{userId}">
         <!--ツイート情報 -->
         <th:block th:if="*{tweetList != null and tweetList.size() > 0}">

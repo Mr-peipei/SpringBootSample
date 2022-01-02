@@ -35,4 +35,12 @@ public class MUser{
     @OneToMany
     @JoinColumn(insertable = false, updatable = false, name= "userId")
     private List<Tweet> tweetList;
+
+    @OneToMany
+    @JoinColumn(insertable = false, updatable = false, name= "userId")
+    private List<Follow> followsList;
+
+    @OneToMany
+    @JoinColumn(insertable = false, updatable = false, name= "userId")
+    private List<Follower> followersList;
 }

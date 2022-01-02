@@ -41,3 +41,20 @@ CREATE TABLE IF NOT EXISTS a_tweet (
     ,tweet_Id VARCHAR(200)
     , PRIMARY KEY(user_id, tweet_Date)
 );
+
+
+--フォローテーブル
+CREATE TABLE IF NOT EXISTS a_follow (
+    user_id VARCHAR(50)
+    ,follow_Date TIMESTAMP
+    ,follow VARCHAR(200)
+    , PRIMARY KEY(user_id, follow_Date)
+);
+
+--フォロワーテーブル
+CREATE TABLE IF NOT EXISTS a_follower (
+    user_id VARCHAR(50)
+    ,follower_Date TIMESTAMP
+    ,follower VARCHAR(200)
+    , PRIMARY KEY(user_id, follower_Date)
+);
