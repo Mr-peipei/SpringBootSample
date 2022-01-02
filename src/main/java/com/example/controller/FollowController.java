@@ -16,6 +16,7 @@ public class FollowController {
     @Autowired
     private FollowService followService;
 
+    //フォロー表示
     @GetMapping("user/{userId}/following")
     public String getFollow(Model model,
                             @PathVariable("userId") String userId){
