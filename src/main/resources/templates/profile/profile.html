@@ -25,12 +25,12 @@
             <h4 th:text="*{userName}" class="font-weight-bold"></h4>
             <div th:if="${authId != userProfileForm.getUserId()}">
                 <div th:if="!${#lists.contains(following, userId)}">
-                    <a th:href="@{'/user/'+ *{userId} + '/follow'}">
+                    <a th:href="@{'/user/'+ *{userId} + '/follow'}" class="btn btn-outline-primary rounded">
                         フォロー
                     </a>
                 </div>
                 <div th:if="${#lists.contains(following, userId)}">
-                    <a th:href="@{'/user/'+ *{userId} + '/unfollow'}">
+                    <a th:href="@{'/user/'+ *{userId} + '/unfollow'}" class="btn btn-outline-dark rounded">
                         フォロー解除
                     </a>
                 </div>
