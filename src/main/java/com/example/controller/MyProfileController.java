@@ -61,13 +61,21 @@ public class MyProfileController {
         Collections.sort(user.getTweetList());
         form.setTweetList(user.getTweetList());
 
-        //フォロー者を取得
+        //フォローを取得 ※フォローステータスのため
         List<String> following = followService.strfindFollows(authId);
+
+        //フォロー、フォロワーを取得 ※フォローカウントのため
+        List<String> userfollowing = followService.strfindFollows(userId);
+        Integer Intfollow = userfollowing.size();
+        List<String> userfollower = followerService.strfindFollower(userId);
+        Integer Intfollower = userfollower.size();
 
         //Modelに登録
         model.addAttribute("userProfileForm", form);
         model.addAttribute("authId", authId);
         model.addAttribute("following", following);
+        model.addAttribute("Intfollow", Intfollow);
+        model.addAttribute("Intfollower", Intfollower);
 
         //プロフィール画面の表示
         return "profile/profile";

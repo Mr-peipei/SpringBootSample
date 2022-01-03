@@ -18,6 +18,12 @@ public interface FollowerRepository extends JpaRepository<Follower, String> {
             + " where follower.followerKey.userId = :userId")
     public List<Follower> findFollowersBy(@Param("userId") String userId);
 
+    /** フォロワーデータ取得(String) **/
+    @Query("select follower.follower"
+            + " from Follower follower"
+            + " where follower.followerKey.userId = :userId")
+    public List<String> strfindFollowers(@Param("userId") String userId);
+
     @Transactional
     @Modifying
     @Query("delete from" +

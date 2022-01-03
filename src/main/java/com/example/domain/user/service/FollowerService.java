@@ -9,6 +9,8 @@ public interface FollowerService {
 
     public List<Follower> findFollower(String userId);
 
+    public List<String> strfindFollower(String userId);
+
     void addFollower(Follower follower);
 
     void deleteFollower(String userId, String follower);
