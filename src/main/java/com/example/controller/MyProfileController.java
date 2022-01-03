@@ -1,9 +1,8 @@
 package com.example.controller;
 
 
-import com.example.domain.user.model.MUser;
-import com.example.domain.user.model.Tweet;
-import com.example.domain.user.model.TweetKey;
+import com.example.domain.user.model.*;
+import com.example.domain.user.service.FollowService;
 import com.example.domain.user.service.TweetService;
 import com.example.domain.user.service.UserService;
 import com.example.form.GroupOrder;
@@ -33,6 +32,9 @@ public class MyProfileController {
 
     @Autowired
     private TweetService tweetService;
+
+    @Autowired
+    private FollowService followService;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -94,5 +96,36 @@ public class MyProfileController {
         tweetService.tweeting(tweetone);
 
         return "redirect:home/";
+    }
+
+    //フォロー
+//    @PostMapping(value="/user/detail", params = "follow")
+    @GetMapping("user/{userId}/follow")
+    public String follow(@PathVariable String userId
+            , Model model, UserProfileForm userProfileForm){
+
+        //ログインユーザーを取得
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String authName = auth.getName();
+
+        //フォロー日を取得
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+        //フォロー者を取得
+        String followName = userProfileForm.getUserId();
+
+        //フォロー者を設定 ※リファクタリングは後ほど
+        Follow follow = new Follow();
+        follow.setFollow(followName);
+        FollowKey followKey = new FollowKey();
+        followKey.setFollowDate(date);
+        followKey.setUserId(authName);
+        follow.setFollowKey(followKey);
+
+        //フォロー
+        followService.following(follow);
+
+        return "redirect:/user/{userId}";
     }
 }

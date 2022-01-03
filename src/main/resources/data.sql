@@ -71,18 +71,18 @@ INSERT INTO a_tweet (
 ;
 
 --ツイートテーブル
-INSERT INTO a_follow (
-                     user_id
-                    ,follow_Date
-                    ,follow
-) VALUES
-('system@co.jp', '2000-12-01', 'user@co.jp')
-;
-
-INSERT INTO a_follower (
-                      user_id
-                     ,follower_Date
-                     ,follower
-) VALUES
-    ('user@co.jp', '2000-12-01', 'system@co.jp')
-;
+-- INSERT INTO a_follow (
+--                      user_id
+--                     ,follow_Date
+--                     ,follow
+-- ) VALUES
+-- ('system@co.jp', '2000-12-01', 'user@co.jp')
+-- ;
+--
+-- INSERT INTO a_follower (
+--                       user_id
+--                      ,follower_Date
+--                      ,follower
+-- ) VALUES
+--     ('user@co.jp', '2000-12-01', 'system@co.jp')
+-- ;

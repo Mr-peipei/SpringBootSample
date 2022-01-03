@@ -24,9 +24,9 @@
         <div class="d-flex justify-content-between w-25">
             <h4 th:text="*{userName}" class="font-weight-bold"></h4>
             <div th:if="${authId != userProfileForm.getUserId()}">
-                <button class="btn btn-primary">
+                <a th:href="@{'/user/'+ *{userId} + '/follow'}">
                     フォロー
-                </button>
+                </a>
             </div>
         </div>
         <h6 class="ml-2" th:text="*{userId}"></h6>

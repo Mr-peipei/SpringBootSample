@@ -5,6 +5,7 @@ import com.example.domain.user.model.Tweet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,4 +15,7 @@ public interface FollowRepository extends JpaRepository<Follow, String> {
             + " from Follow follow"
             + " where follow.followKey.userId = :userId")
     public List<Follow> findFollowsBy(@Param("userId") String userId);
+
+    @Transactional
+    void deleteFollowByFollow(String follow);
 }

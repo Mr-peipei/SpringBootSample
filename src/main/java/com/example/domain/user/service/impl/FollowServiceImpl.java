@@ -18,4 +18,14 @@ public class FollowServiceImpl implements FollowService {
     public List<Follow> findFollows(String userId){
         return repository.findFollowsBy(userId);
     }
+
+    @Override
+    public void following(Follow follow){
+        repository.save(follow);
+    }
+
+    @Override
+    public void unfollow(String strfollow){
+        repository.deleteFollowByFollow(strfollow);
+    }
 }
