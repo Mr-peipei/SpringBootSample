@@ -7,4 +7,6 @@ import java.util.List;
 public interface FollowerService {
 
     public List<Follower> findFollower(String userId);
+
+    void addFollower(Follower follower);
 }

@@ -18,4 +18,9 @@ public class FollowerServiceImpl implements FollowerService {
     public List<Follower> findFollower(String userId){
         return repository.findFollowersBy(userId);
     }
+
+    @Override
+    public void addFollower(Follower follower){
+        repository.save(follower);
+    }
 }

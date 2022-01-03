@@ -3,6 +3,7 @@ package com.example.controller;
 
 import com.example.domain.user.model.*;
 import com.example.domain.user.service.FollowService;
+import com.example.domain.user.service.FollowerService;
 import com.example.domain.user.service.TweetService;
 import com.example.domain.user.service.UserService;
 import com.example.form.GroupOrder;
@@ -35,6 +36,9 @@ public class MyProfileController {
 
     @Autowired
     private FollowService followService;
+
+    @Autowired
+    private FollowerService followerService;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -99,7 +103,6 @@ public class MyProfileController {
     }
 
     //フォロー
-//    @PostMapping(value="/user/detail", params = "follow")
     @GetMapping("user/{userId}/follow")
     public String follow(@PathVariable String userId
             , Model model, UserProfileForm userProfileForm){
@@ -123,9 +126,20 @@ public class MyProfileController {
         followKey.setUserId(authName);
         follow.setFollowKey(followKey);
 
+        //フォロワーを登録
+        Follower follower = new Follower();
+        follower.setFollower(authName);
+        FollowerKey followerKey = new FollowerKey();
+        followerKey.setFollowerDate(date);
+        followerKey.setUserId(followName);
+        follower.setFollowerKey(followerKey);
+
         //フォロー
         followService.following(follow);
+        followerService.addFollower(follower);
 
         return "redirect:/user/{userId}";
     }
+
+    //フォロー解除
 }
