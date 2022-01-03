@@ -1,6 +1,7 @@
 package com.example.domain.user.service.impl;
 
 import com.example.domain.user.model.Follower;
+import com.example.domain.user.model.FollowerKey;
 import com.example.domain.user.service.FollowerService;
 import com.example.repository.FollowerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class FollowerServiceImpl implements FollowerService {
     @Override
     public void addFollower(Follower follower){
         repository.save(follower);
+    }
+
+    @Override
+    public void deleteFollower(String userId, String follower){
+        repository.deleteFollower(userId, follower);
     }
 }

@@ -27,6 +27,9 @@
                 <a th:href="@{'/user/'+ *{userId} + '/follow'}">
                     フォロー
                 </a>
+                <a th:href="@{'/user/'+ *{userId} + '/unfollow'}">
+                    フォロー解除
+                </a>
             </div>
         </div>
         <h6 class="ml-2" th:text="*{userId}"></h6>

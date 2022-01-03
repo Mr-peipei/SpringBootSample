@@ -1,6 +1,7 @@
 package com.example.domain.user.service.impl;
 
 import com.example.domain.user.model.Follow;
+import com.example.domain.user.model.FollowKey;
 import com.example.domain.user.service.FollowService;
 import com.example.repository.FollowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
-    public void unfollow(String strfollow){
-        repository.deleteFollowByFollow(strfollow);
+    public void unfollow(String userId, String follow){
+        repository.deleteFollow(userId, follow);
     }
 }

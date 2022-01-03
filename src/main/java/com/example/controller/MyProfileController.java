@@ -142,4 +142,31 @@ public class MyProfileController {
     }
 
     //フォロー解除
+    @GetMapping("user/{userId}/unfollow")
+    public String unfollow(@PathVariable String userId
+            , Model model, UserProfileForm userProfileForm){
+
+        //ログインユーザーを取得
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String authName = auth.getName();
+
+        //フォロー者を取得
+        String followName = userProfileForm.getUserId();
+
+        //フォローから解除者を設定 ※リファクタリングは後ほど
+//        FollowKey followKey = new FollowKey();
+//        followKey.setUserId(authName);
+
+        //フォロワーから削除者をを登録
+//        FollowerKey followerKey = new FollowerKey();
+//        followerKey.setUserId(followName);
+
+        //フォロー解除
+        //フォロー者を解除　①ログイン者のフォロー枠から削除
+        //対象のフォロワー者を解除　②フォロー解除者のフォロワーからユーザーを削除
+        followService.unfollow(authName, followName);
+        followerService.deleteFollower(followName, authName);
+
+        return "redirect:/user/{userId}";
+    }
 }
