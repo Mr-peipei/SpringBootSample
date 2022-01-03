@@ -21,6 +21,11 @@ public class FollowServiceImpl implements FollowService {
     }
 
     @Override
+    public List<String> strfindFollows(String userId){
+        return repository.strfindFollows(userId);
+    }
+
+    @Override
     public void following(Follow follow){
         repository.save(follow);
     }

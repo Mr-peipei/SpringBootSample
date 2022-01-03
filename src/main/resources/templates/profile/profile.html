@@ -24,12 +24,16 @@
         <div class="d-flex justify-content-between w-25">
             <h4 th:text="*{userName}" class="font-weight-bold"></h4>
             <div th:if="${authId != userProfileForm.getUserId()}">
-                <a th:href="@{'/user/'+ *{userId} + '/follow'}">
-                    フォロー
-                </a>
-                <a th:href="@{'/user/'+ *{userId} + '/unfollow'}">
-                    フォロー解除
-                </a>
+                <div th:if="!${#lists.contains(following, userId)}">
+                    <a th:href="@{'/user/'+ *{userId} + '/follow'}">
+                        フォロー
+                    </a>
+                </div>
+                <div th:if="${#lists.contains(following, userId)}">
+                    <a th:href="@{'/user/'+ *{userId} + '/unfollow'}">
+                        フォロー解除
+                    </a>
+                </div>
             </div>
         </div>
         <h6 class="ml-2" th:text="*{userId}"></h6>

@@ -9,6 +9,8 @@ public interface FollowService {
 
     public List<Follow> findFollows(String userId);
 
+    public List<String> strfindFollows(String userId);
+
     public void following(Follow follow);
 
     public void unfollow(String userId, String follow);

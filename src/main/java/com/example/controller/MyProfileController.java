@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -60,9 +61,13 @@ public class MyProfileController {
         Collections.sort(user.getTweetList());
         form.setTweetList(user.getTweetList());
 
+        //フォロー者を取得
+        List<String> following = followService.strfindFollows(authId);
+
         //Modelに登録
         model.addAttribute("userProfileForm", form);
         model.addAttribute("authId", authId);
+        model.addAttribute("following", following);
 
         //プロフィール画面の表示
         return "profile/profile";
@@ -152,14 +157,6 @@ public class MyProfileController {
 
         //フォロー者を取得
         String followName = userProfileForm.getUserId();
-
-        //フォローから解除者を設定 ※リファクタリングは後ほど
-//        FollowKey followKey = new FollowKey();
-//        followKey.setUserId(authName);
-
-        //フォロワーから削除者をを登録
-//        FollowerKey followerKey = new FollowerKey();
-//        followerKey.setUserId(followName);
 
         //フォロー解除
         //フォロー者を解除　①ログイン者のフォロー枠から削除
