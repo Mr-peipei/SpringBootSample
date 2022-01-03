@@ -19,4 +19,9 @@ public class HomeServiceImpl implements HomeService {
     public List<Tweet> getAllTweet(){
         return repository.findAll(Sort.by(Sort.Direction.DESC, "TweetKey.tweetDate"));
     }
+
+    @Override
+    public List<Tweet> getFollowTweet(String userId){
+        return repository.findTweetByfollow(userId);
+    }
 }

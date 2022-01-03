@@ -11,4 +11,6 @@ import java.util.List;
 public interface HomeService {
 
     public List<Tweet> getAllTweet();
+
+    public List<Tweet> getFollowTweet(String userId);
 }

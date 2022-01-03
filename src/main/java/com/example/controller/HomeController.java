@@ -26,14 +26,15 @@ public class HomeController {
     @GetMapping("/home")
     public String getHome(@ModelAttribute TweetForm form, Model model){
 
-        //formをツイートクラスに変更
-        Tweet tweet = modelMapper.map(form, Tweet.class);
-        //ツイート一覧を取得
-        List<Tweet> tweetList = homeService.getAllTweet();
         //ログインユーザー取得は、HOMEからプロフィールの画面遷移のために必要
         //ログインユーザーを取得
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userId = auth.getName();
+
+        //formをツイートクラスに変更
+        Tweet tweet = modelMapper.map(form, Tweet.class);
+        //ツイート一覧を取得
+        List<Tweet> tweetList = homeService.getFollowTweet(userId);
 
         //Modelに登録
         model.addAttribute("userId", userId);
