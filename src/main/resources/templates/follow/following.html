@@ -24,7 +24,9 @@
             </thead>
             <tbody>
             <tr th:each="item: ${following}">
-                <td th:text="${item.follow}"></td>
+                <td>
+                    <a th:href="@{'/user/' + ${item.follow}}" th:text="${item.follow}"></a>
+                </td>
             </tr>
             </tbody>
         </table>

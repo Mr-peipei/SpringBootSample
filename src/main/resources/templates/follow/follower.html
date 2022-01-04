@@ -19,12 +19,14 @@
         <table class="table table-striped table-bordered table-hover">
             <thead class="thread-light">
             <tr>
-                <th class="width">フォロー</th>
+                <th class="width">フォロワー</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="item: ${follower}">
-                <td th:text="${item.follower}"></td>
+               <td>
+                   <a th:href="@{'/user/' + ${item.follower}}" th:text="${item.follower}"></a>
+               </td>
             </tr>
             </tbody>
         </table>
