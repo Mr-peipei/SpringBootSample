@@ -6,10 +6,10 @@
 </head>
 <body>
 <nav layout:fragment="header"
-      class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+      class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-transparent ml-5">
 <div class="container-fluid">
     <div class="navbar-header">
-        <a href="#" class="navbar-brand">独裁者の世界</a>
+        <a th:href="@{'/home'}" class="navbar-brand text-dark"><i class="bi bi-unlock-fill mr-3"></i>独裁者の世界</a>
     </div>
     <form method="post" th:action="@{/logout}">
         <button class="btn btn-link pull-right navbar-brand" type="submit">

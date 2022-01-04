@@ -4,24 +4,25 @@
       layout:decorate="~{layout/layout}"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+    <link rel="stylesheet" th:href="@{/css/layout/menu.css}">
 </head>
 <body>
 <div layout:fragment="menu" class="bg-light">
-    <ul class="nav nav-pills nav-stacked">
-        <li role="presentation">
-            <a th:href="@{'/user/list'}" class="nav-link">ユーザ一覧</a>
+    <ul class="nav nav-pills nav-stacked list-group">
+        <li role="presentation" class="list-group-item-action m-2 rounded-pill h5">
+            <a th:href="@{'/home'}" class="nav-link d-flex"><i class="bi bi-house-door mr-3"></i>ホーム</a>
         </li>
-        <li role="presentation" sec:authorize="hasRole('ADMIN')">
-            <a th:href="@{'/admin'}" class="nav-link">アドミン専用</a>
+        <li role="presentation" class="list-group-item-action m-2 rounded-pill navigation h5">
+            <a th:href="@{'/user/list'}" class="nav-link"><i class="bi bi-people-fill mr-3"></i>ユーザ一覧</a>
         </li>
-        <li role="presentation" >
-            <a th:href="@{'/user/'+${userId}}" class="nav-link">プロフィール</a>
+        <li role="presentation" sec:authorize="hasRole('ADMIN')" class="list-group-item-action m-2 rounded-pill h5">
+            <a th:href="@{'/admin'}" class="nav-link"><i class="bi bi-person-workspace mr-3"></i>アドミン専用</a>
         </li>
-        <li role="presentation" >
-            <a th:href="@{'/home'}" class="nav-link">ホーム</a>
+        <li role="presentation" class="list-group-item-action m-2 rounded-pill h5">
+            <a th:href="@{'/user/'+${userId}}" class="nav-link"><i class="bi bi-person-circle mr-3"></i>プロフィール</a>
         </li>
-        <form id="tweet-form" th:action="@{/tweet}" method="post" >
-            <textarea name="tweet" class="form-control mb-2" type="text" rows="2" ></textarea>
+        <form id="tweet-form" th:action="@{/tweet}" method="post" class="mt-3">
+            <textarea name="tweet" class="form-control mb-2" type="text" rows="2" placeholder="投稿"></textarea>
             <p><input class="btn btn-primary" type="submit" value="ツイートする" /></p>
         </form>
     </ul>

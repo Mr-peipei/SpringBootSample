@@ -1,0 +1,8 @@
+.navigation {
+    color: #f00;
+    background-color: transparent;
+}
+.navigation:hover {
+    color: #0f0;
+    background-color: grey;
+}

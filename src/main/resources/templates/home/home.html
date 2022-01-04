@@ -68,30 +68,6 @@
                 </div>
             </div>
         </th:block>
-        <table class="table table-striped table-bordered table-hover">
-            <thead class="thread-light">
-            <tr>
-                <th class="width">ユーザーID</th>
-                <th class="width">ツイート日</th>
-                <th class="width">ツイート</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item: ${tweetList}">
-                <td>
-                    <a th:href="@{'/user/'+ ${item.tweetKey.userId}}" th:text="${item.tweetKey.userId}"></a>
-                </td>
-                <td th:text="${item.tweetKey.tweetDate}"></td>
-                <td th:text="${item.tweet}"></td>
-                <td>
-                    <a th:href="@{'/user/' + ${item.tweetKey.userId} +'/'+ ${item.tweetId}}" class="btn btn-primary">
-                        詳細
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 </div>
 </body>
