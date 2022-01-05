@@ -32,3 +32,18 @@ This application Name is Totter.
 - datatables
 - datatables-plugins
 - spring-boot-starter-data-jpa
+
+### Using Controller
+
+ - AdminController
+ - FollowController
+ - FollowerController
+ - HomeController
+ - IndexController
+ - LoginController
+ - LogoutController
+ - MyProfileController
+ - SignupController
+ - TweetDetailController
+ - UserDetailController
+ - UserListController
