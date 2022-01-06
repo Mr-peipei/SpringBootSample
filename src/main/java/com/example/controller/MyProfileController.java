@@ -25,6 +25,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+/*
+* MyProfileController
+* プロフィール画面でする動作と、プロフィール画面に遷移した際のViewの受け渡しを実施
+* 依存関係が多いため改善の余地大幅あり
+* */
 @Slf4j
 @Controller
 public class MyProfileController {
