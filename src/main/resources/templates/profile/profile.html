@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <title th:text="${userProfileForm.userName}+'さん'"></title>
     <!--CSS読込-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/user/list.css}">
     <link rel="stylesheet" th:href="@{/css/user/profile.css}">
     <!--JS読込-->
@@ -19,7 +20,8 @@
             <h1 class="h2">マイプロフィール</h1>
         </div>
     </div>
-    <form th:action="@{/user/detail}" method="post" id="user-detail-form" class="form-signup" th:object="${userProfileForm}">
+    <form th:action="@{/user/detail}" method="post" id="user-detail-form" class="form-signup"
+          th:object="${userProfileForm}">
         <img th:src="@{/images/defaultIcon.jpg}" alt="" class="rounded-circle profile-icon p-3">
         <div class="d-flex justify-content-between w-25">
             <h4 th:text="*{userName}" class="font-weight-bold"></h4>
@@ -55,7 +57,9 @@
                 <div class="card w-50">
                     <div class="row no-gutters">
                         <div class="col-md-1 text-center">
-                            <img class="bd-placeholder-img rounded-circle p-2" width="60" height="60" th:src="@{/images/defaultIcon.jpg}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image" />
+                            <img class="bd-placeholder-img rounded-circle p-2" width="60" height="60"
+                                 th:src="@{/images/defaultIcon.jpg}" preserveAspectRatio="xMidYMid slice"
+                                 focusable="false" role="img" aria-label="Placeholder: Image"/>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -64,10 +68,10 @@
                                         <p class="card-title font-weight-bold" th:text="*{userName}"/>
                                     </div>
                                     <div class="pl-2 bd-highlight">
-                                        <p class="" th:text="${userId}" />
+                                        <p class="" th:text="${userId}"/>
                                     </div>
                                     <div class="pl-2 bd-highlight">
-                                        <p class="" th:text="${#dates.format(item.tweetKey.tweetDate, 'yyyy/MM/dd')}" />
+                                        <p class="" th:text="${#dates.format(item.tweetKey.tweetDate, 'yyyy/MM/dd')}"/>
                                     </div>
                                 </div>
                                 <p class="card-text" th:text="${item.tweet}"></p>
@@ -75,14 +79,15 @@
                         </div>
                         <div class="col-md-2 d-flex align-items-center">
                             <td>
-                                <a th:href="@{'/user/' + ${item.tweetKey.userId} +'/'+ ${item.tweetId}}" class="btn btn-primary">
+                                <a th:href="@{'/user/' + ${item.tweetKey.userId} +'/'+ ${item.tweetId}}"
+                                   class="btn btn-primary">
                                     詳細
                                 </a>
                             </td>
                         </div>
                     </div>
                 </div>
-           </th:block>
+            </th:block>
         </th:block>
     </form>
 </div>
