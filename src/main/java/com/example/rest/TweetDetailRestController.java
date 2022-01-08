@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api")
 public class TweetDetailRestController {
 
@@ -16,8 +17,7 @@ public class TweetDetailRestController {
     /*ツイート詳細を表示*/
     @GetMapping("/sample")
     @ResponseBody
-    public Tweet getTweetRest(@PathVariable("userId") String userId,
-                               @PathVariable("tweetId") String tweetId){
+    public Tweet getTweetRest(){
 
         Tweet tweet = tweetService.findTweetOne("1");
         return tweet;
