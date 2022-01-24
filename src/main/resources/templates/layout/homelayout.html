@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <mata name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no"></mata>
+  <meta charset="UTF-8">
+  <!-- CSS読み込み -->
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/css/index/index.css}">
+  <!-- JS読み込み -->
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+  <title>独裁者の世界</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-center">
+      <img class="m-4 img-fluid home-image" style="height: 70%; width: 70%" th:src="@{/images/icon_107680.svg}" alt="">
+    </div>
+    <div class="col-md-4 d-flex align-items-center">
+      <div class="flex-column">
+
+        <div layout:fragment="content"></div>
+
+      </div>
+    </div>
+  </div>
+  <footer class="footer text-center flex-wrap p-3">
+    <a href="" class="footer-a">利用規約</a>
+    <a href="" class="footer-a">このサイトについて</a>
+    <a href="" class="footer-a">プライバシーポリシー</a>
+  </footer>
+</div>
+</body>
+</html>
