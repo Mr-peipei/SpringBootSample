@@ -9,7 +9,10 @@
       class="navbar navbar-inverse navbar-fixed-top navbar-dark border-bottom">
 <div class="container-fluid">
     <div class="navbar-header">
-        <a th:href="@{'/home'}" class="navbar-brand text-dark"><i class="bi bi-unlock-fill mr-3"></i>独裁者の世界</a>
+        <img class="img-fluid home-image mr-2 mb-2" style="height: 4%; width: 4%" th:src="@{/images/icon_107680.svg}" alt="">
+        <a th:href="@{'/home'}" class="navbar-brand text-dark">
+<!--            <i class="bi bi-unlock-fill mr-3"></i>-->
+            独裁者の世界</a>
     </div>
     <form method="post" th:action="@{/logout}">
         <button class="btn btn-link pull-right navbar-brand text-dark" type="submit">
